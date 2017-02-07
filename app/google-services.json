@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "396996902124",
+    "firebase_url": "https://werk-it-c88b2.firebaseio.com",
+    "project_id": "werk-it-c88b2",
+    "storage_bucket": "werk-it-c88b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396996902124:android:9630d139d2797f18",
+        "android_client_info": {
+          "package_name": "com.example.xtrem.werkit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396996902124-e5547c7udlcpkt56abib1gkqha7q639t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAC-3bUuAi9Gq8d4PYGM8VOiKaJYSYZ-U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396996902124-e5547c7udlcpkt56abib1gkqha7q639t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
