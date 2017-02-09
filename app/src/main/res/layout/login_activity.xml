@@ -29,14 +29,14 @@
         android:layout_alignParentBottom="true"
         android:background="@color/primaryAccent"
         android:id="@+id/LoginButtonLoginPage"
-        android:layout_marginBottom="5pt"
+        android:layout_margin="5pt"
         android:text="LOG IN"/>
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/GoogleLoginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10pt"
+        android:layout_margin="5pt"
         android:layout_above="@id/LoginButtonLoginPage"
         android:layout_gravity="center_horizontal"/>
 
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_above="@id/GoogleLoginButton"
-        android:layout_marginBottom="10pt"
+        android:layout_margin="5pt"
         />
 
 

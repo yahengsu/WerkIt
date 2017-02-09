@@ -18,7 +18,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="30pt"
         android:id="@+id/Title"
-        />
+        android:paddingTop="20pt"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,15 +39,15 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Log in"
-        android:id="@+id/LoginButton"
+        android:id="@+id/LoginButtonStartActivity"
         android:background="@color/primaryAccent"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="Sign Up"
-        android:id="@+id/SignupButton"
-        android:layout_above="@+id/LoginButton"
+        android:id="@+id/SignupButtonStartActivity"
+        android:layout_above="@+id/LoginButtonStartActivity"
         android:layout_marginBottom="5pt"
         android:background="@color/primaryAccent"/>
 
