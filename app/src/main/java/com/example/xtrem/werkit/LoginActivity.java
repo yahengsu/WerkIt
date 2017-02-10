@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
                         Log.d(GOOGLE_LOGIN, "ConnectionFailed");
-                        Toast.makeText(LoginActivity.this, "Authentication Failed",Toast.LENGTH_SHORT);
+                        Toast.makeText(LoginActivity.this, "Authentication Failed",Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
@@ -135,8 +135,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 googleSignIn();
-                Intent i = new Intent(view.getContext(),MainActivity.class);
-                startActivity(i);
+
             }
         });
 
@@ -146,32 +145,10 @@ public class LoginActivity extends AppCompatActivity {
     private void googleSignIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
+
     }
 
 
-    public void onActivityResultGoogle(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleSignInResultGoogle(result);
-        }
-    }
-
-
-    private void handleSignInResultGoogle(GoogleSignInResult result) {
-        Log.d(GOOGLE_LOGIN, "handleSignInResult:" + result.isSuccess());
-        if (result.isSuccess()) {
-            // Signed in successfully, show authenticated UI.
-            Log.d(GOOGLE_LOGIN,"googleSignInSuccess");
-            GoogleSignInAccount acct = result.getSignInAccount();
-
-        } else {
-            // Signed out, show unauthenticated UI.
-            Log.d(GOOGLE_LOGIN,"googleSignInFailed");
-        }
-    }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(GOOGLE_LOGIN, "firebaseAuthWithGoogle:" + acct.getId());
@@ -191,7 +168,12 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-                        // ...
+                        else if (task.isSuccessful()){
+                            Intent i = new Intent(LoginActivity.this,MainActivity.class);
+                            startActivity(i);
+                        }
+
+                        // add code if necessary
                     }
                 });
     }
@@ -203,7 +185,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
-
 
     @Override
     public void onStop() {
@@ -221,6 +202,16 @@ public class LoginActivity extends AppCompatActivity {
 
         // Pass the activity result back to the Facebook SDK
         callbackManager.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            if(result.isSuccess())
+            {
+                GoogleSignInAccount account = result.getSignInAccount();
+                firebaseAuthWithGoogle(account);
+            }
+        }
     }
 
     //Facebook Access Token
@@ -248,17 +239,11 @@ public class LoginActivity extends AppCompatActivity {
     public void signOut() {
         mAuth.signOut();
         LoginManager.getInstance().logOut();
+
+
     }
 
-    private void signOutGoogle() {
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        updateUI(false);
-                    }
-                });
-    }
+
 
 
 

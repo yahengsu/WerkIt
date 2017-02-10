@@ -9,15 +9,13 @@ import android.widget.Button;
 
 public class StartMenuActivity extends AppCompatActivity {
 
-    private Button SignupButton;
-    private Button loginButton;
-    public View view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SignupButton = (Button) findViewById(R.id.SignupButtonStartActivity);
+        Button SignupButton = (Button) findViewById(R.id.SignupButtonStartActivity);
         SignupButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -27,7 +25,7 @@ public class StartMenuActivity extends AppCompatActivity {
         });
 
 
-        loginButton = (Button) findViewById(R.id.LoginButtonStartActivity);
+        Button loginButton = (Button) findViewById(R.id.LoginButtonStartActivity);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
