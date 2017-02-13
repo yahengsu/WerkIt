@@ -2,7 +2,10 @@
     <string name="app_name">Werk It</string>
     <string name="facebook_app_id">1902741119971953</string>
     <string name="fb_login_protocol_scheme">fb1902741119971953</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
