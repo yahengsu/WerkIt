@@ -1,5 +1,6 @@
 package com.example.xtrem.werkit;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView mDrawerList;
     private ArrayAdapter<String> mAdapter;
     private ActionBarDrawerToggle mDrawerToggle;
-    private DrawerLayout mDrawerLayout;
+    protected DrawerLayout mDrawerLayout;
     private String mActivityTitle;
 
 
@@ -40,7 +41,34 @@ public class MainActivity extends AppCompatActivity {
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this, "ayy lmao we did it", Toast.LENGTH_SHORT).show();
+                int id = mDrawerList.getId();
+                switch (id)
+                {
+                    case 0:
+                    {
+
+                    }
+                    case 1:
+                    {
+                        Intent a = new Intent(view.getContext(),HistoryActivity.class);
+                        startActivity(a);
+                    }
+                    case 2:
+                    {
+                        Intent a = new Intent(view.getContext(),WorkoutsActivity.class);
+                        startActivity(a);
+                    }
+                    case 3:
+                    {
+                        Intent a = new Intent(view.getContext(),ExercisesActivity.class);
+                        startActivity(a);
+                    }
+                    case 4:
+                    {
+                        Intent a = new Intent(view.getContext(),SettingsActivity.class);
+                        startActivity(a);
+                    }
+                }
             }
         });
         addDrawerItems();
@@ -58,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void addDrawerItems() {
-        String[] osArray = { "Android", "iOS", "Windows", "OS X", "Linux" };
+        String[] osArray = { "Home", "History", "Workouts", "Exercises", "Settings" };
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
     }
