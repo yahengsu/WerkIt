@@ -40,10 +40,6 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".HistoryActivity" />
-        <activity android:name=".WorkoutsActivity" />
-        <activity android:name=".ExercisesActivity" />
-        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>
