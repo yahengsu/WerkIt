@@ -8,6 +8,47 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.xtrem.werkit.SignupActivity">
+    tools:context="com.example.xtrem.werkit.SignupActivity"
+    android:background="@color/primaryTheme">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditTextFirstNameSignupActivity"
+        android:hint="First Name"
+        android:paddingBottom="10pt"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditTextLastNameSignupActivity"
+        android:hint="Last Name"
+        android:layout_below="@id/EditTextFirstNameSignupActivity"
+        android:paddingBottom="10pt"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditTextEmailSignupActivity"
+        android:hint="Email Address"
+        android:layout_below="@id/EditTextLastNameSignupActivity"
+        android:paddingBottom="10pt"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditTextPasswordSignupActivity"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/EditTextEmailSignupActivity"
+        android:paddingBottom="10pt"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SignupButtonSignupActivity"
+        android:layout_alignParentBottom="true"
+        android:text="Sign Up"
+        android:background="@color/primaryAccent"/>
 
 </RelativeLayout>

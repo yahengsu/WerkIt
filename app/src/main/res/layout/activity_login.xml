@@ -22,7 +22,8 @@
         android:layout_margin="5pt"
         android:layout_below="@id/EmailEditTextLoginActivity"
         android:hint="Password"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:id="@+id/EditTextPasswordLoginActivity"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

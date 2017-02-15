@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -46,8 +48,13 @@ public class LoginActivity extends AppCompatActivity {
     private static final String FACEBOOK_LOGIN = "FacebookLogin";
     private static final String GOOGLE_LOGIN = "GoogleLogin";
     private static final int RC_SIGN_IN = 9001;
+    private static final String TAG = "Firebase";
 
     private GoogleApiClient mGoogleApiClient;
+
+    private EditText Email;
+    private EditText Password;
+    private Button LoginButton;
 
 
     @Override
@@ -134,6 +141,23 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 googleSignIn();
 
+            }
+        });
+
+
+        //Email Sign in
+        Email = (EditText) findViewById(R.id.EmailEditTextLoginActivity);
+        final String email = Email.getText().toString();
+        Password = (EditText) findViewById(R.id.EditTextPasswordLoginActivity);
+        final String password = Password.getText().toString();
+        LoginButton = (Button) findViewById(R.id.LoginButtonLoginPage);
+        LoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signIn(email,password);
+
+                Intent i = new Intent(view.getContext(),MainActivity.class);
+                startActivity(i);
             }
         });
 
@@ -239,6 +263,33 @@ public class LoginActivity extends AppCompatActivity {
         LoginManager.getInstance().logOut();
 
 
+    }
+
+
+
+    private void signIn(String email, String password) {
+        Log.d(TAG, "signIn:" + email);
+
+        // [START sign_in_with_email]
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "signInWithEmail:failed", task.getException());
+                            Toast.makeText(LoginActivity.this, "Auth Failed",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+                });
+        // [END sign_in_with_email]
     }
 
 
