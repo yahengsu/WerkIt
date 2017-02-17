@@ -13,7 +13,8 @@
         android:layout_margin="5pt"
         android:layout_height="wrap_content"
         android:hint="E-Mail"
-        android:id="@+id/EmailEditTextLoginActivity"/>
+        android:id="@+id/EmailEditTextLoginActivity"
+        android:layout_marginTop="10pt"/>
 
 
     <EditText
@@ -32,24 +33,28 @@
         android:id="@+id/LoginButtonLoginPage"
         android:layout_margin="5pt"
         android:text="LOG IN"/>
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/GoogleLoginButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5pt"
-        android:layout_above="@id/LoginButtonLoginPage"
-        android:layout_gravity="center_horizontal"/>
-
-
     <com.facebook.login.widget.LoginButton
         android:id="@+id/FacebookLoginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_above="@id/GoogleLoginButton"
-        android:layout_margin="5pt"
-        />
+        android:layout_below="@id/EditTextPasswordLoginActivity"
+        android:layout_marginTop="15pt"
+        android:layout_marginLeft="5pt"
+        android:layout_marginRight="5pt"/>
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/GoogleLoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15pt"
+        android:layout_marginLeft="5pt"
+        android:layout_marginRight="5pt"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@id/FacebookLoginButton"/>
+
+
+
 
 
 

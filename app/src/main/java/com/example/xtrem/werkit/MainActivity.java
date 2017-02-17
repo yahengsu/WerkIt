@@ -33,6 +33,11 @@ public class MainActivity extends AppCompatActivity implements ExercisesFragment
         mDrawer.addDrawerListener(drawerToggle);
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
         setupDrawerContent(nvDrawer);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment fragment = new Fragment();
+        fragmentTransaction.add(R.id.flContent, fragment);
+        fragmentTransaction.commit();
 
 
 
@@ -76,8 +81,10 @@ public class MainActivity extends AppCompatActivity implements ExercisesFragment
             case R.id.nav_exercises_fragment:
                 fragmentClass = ExercisesFragment.class;
                 break;
+            case R.id.nav_main_fragment:
+                fragmentClass = MainFragment.class;
             default:
-                fragmentClass = MainActivity.class;
+                fragmentClass = MainFragment.class;
         }
 
         try {
@@ -121,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements ExercisesFragment
 
     @Override
     public void onFragmentInteraction(Uri uri){
-        //you can leave it empty
+
     }
 
 }
