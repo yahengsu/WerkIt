@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity implements ExercisesFragment.OnFragmentInteractionListener, HistoryFragment.OnFragmentInteractionListener, SettingsFragment.OnFragmentInteractionListener, WorkoutsFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements ExercisesFragment.OnFragmentInteractionListener, HistoryFragment.OnFragmentInteractionListener, SettingsFragment.OnFragmentInteractionListener, WorkoutsFragment.OnFragmentInteractionListener, MainFragment.OnFragmentInteractionListener{
 
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements ExercisesFragment
         setupDrawerContent(nvDrawer);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment fragment = new Fragment();
+        Fragment fragment = new MainFragment();
         fragmentTransaction.add(R.id.flContent, fragment);
         fragmentTransaction.commit();
 
