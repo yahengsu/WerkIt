@@ -36,7 +36,7 @@ public class ExercisesFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<String> myDataset;
+    private ArrayList<Exercises> myDataset;
 
 
 
@@ -71,6 +71,8 @@ public class ExercisesFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
+
     }
 
     @Override
@@ -79,13 +81,12 @@ public class ExercisesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_exercises,container,false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
-        mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this.getContext());
+        myDataset = Exercises.createExerisesList(20);
+        mRecyclerView.setHasFixedSize(true);
+        RecycleAdapter recycleAdapter = new RecycleAdapter(this.getContext(),myDataset);
+        mRecyclerView.setAdapter(recycleAdapter);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new RecycleAdapter(myDataset);
-        mRecyclerView.setAdapter(mAdapter);
-
-
         return view;
 
     }
