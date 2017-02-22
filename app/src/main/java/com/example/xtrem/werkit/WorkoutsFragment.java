@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.File;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +24,9 @@ public class WorkoutsFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private static final String FILENAME_WORKOUTS = "workouts";
+    File file;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -57,6 +62,11 @@ public class WorkoutsFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+
+        if (!file.exists())
+        {
+            file = new File(getContext().getFilesDir(), FILENAME_WORKOUTS);
         }
     }
 

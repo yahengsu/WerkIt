@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -26,6 +27,11 @@ public class ExercisesFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private static final String FILENAME_EXERCISES = "exercises";
+    File file;
+
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -70,6 +76,10 @@ public class ExercisesFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        if (!file.exists())
+        {
+            file = new File(getContext().getFilesDir(), FILENAME_EXERCISES);
+        }
 
 
 
@@ -82,6 +92,7 @@ public class ExercisesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_exercises,container,false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
         mLayoutManager = new LinearLayoutManager(this.getContext());
+        file.
         myDataset = Exercises.createExerisesList(20);
         mRecyclerView.setHasFixedSize(true);
         RecycleAdapter recycleAdapter = new RecycleAdapter(this.getContext(),myDataset);

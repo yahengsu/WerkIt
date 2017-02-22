@@ -9,4 +9,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="action_settings">Settings</string>
+
+    <string-array name="exercisetype_array">
+        <item>Cardio</item>
+        <item>Core</item>
+        <item>Arms</item>
+        <item>Upper Body</item>
+        <item>Legs</item>
+        <item>Lower Body</item>
+        <item>Back</item>
+        <item>Strech</item>
+    </string-array>
 </resources>

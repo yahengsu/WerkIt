@@ -17,7 +17,6 @@
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
         <activity android:name=".StartMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +43,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".EditWorkoutActivity"></activity>
+        <activity android:name=".EditWorkoutActivity" />
+        <activity android:name=".EditExercisesActivity"></activity>
     </application>
 
 </manifest>
