@@ -1,2 +1,2 @@
 # WerkIt
-Fitness App for Android
+Fitness App for Android (in Progress)
